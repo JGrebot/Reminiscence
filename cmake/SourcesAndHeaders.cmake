@@ -7,6 +7,12 @@ set(exe_sources
 	${sources}
 )
 
+# quickstart.cpp is the rapidyml example file.
+# set(exe_sources_2
+#     app/quickstart.cpp
+# 	${sources}
+# )
+
 set(headers
     include/tmp.hpp
 )

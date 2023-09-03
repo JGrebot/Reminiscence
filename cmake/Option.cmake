@@ -2,7 +2,7 @@
 # Project settings, executable and/or library and/or testing (with googletest)
 #
 option(${PROJECT_NAME}_BUILD_EXECUTABLE "Build the project as an executable." ON)
-option(${PROJECT_NAME}_BUILD_LIBRARY_HEADERS_ONLY "Build the project as a header-only library" ON)
+option(${PROJECT_NAME}_BUILD_LIBRARY_HEADERS_ONLY "Build the project as a header-only library" OFF)
 option(${PROJECT_NAME}_ENABLE_UNIT_TESTING "Enable unit tests for the projects (from the `test` subfolder)." OFF)
 
 

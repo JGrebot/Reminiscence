@@ -20,6 +20,28 @@ if(${PROJECT_NAME}_BUILD_EXECUTABLE)
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     )
+
+    target_link_libraries(${PROJECT_NAME} ryml::ryml)
+
+    # Quickstart is the ryml quickstart app, to del
+    # add_executable(quickstart ${exe_sources_2})
+
+    # set_target_properties(
+    #     quickstart
+    #     PROPERTIES
+    #     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    #     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    #     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    # )
+
+    # target_include_directories(
+    #     quickstart
+    #     PUBLIC
+    #     $<INSTALL_INTERFACE:include>
+    #     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    # )
+
+    # target_link_libraries(quickstart ryml::ryml)
 endif()
 
 
@@ -46,6 +68,9 @@ if(${PROJECT_NAME}_BUILD_LIBRARY_HEADERS_ONLY OR ${PROJECT_NAME}_ENABLE_UNIT_TES
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     )
+
+
+    target_link_libraries(${PROJECT_NAME} ryml::ryml)
 endif()
 
 
