@@ -3,7 +3,7 @@ set(sources
 )
 
 set(exe_sources
-    src/main.cpp
+    app/main.cpp
 	${sources}
 )
 

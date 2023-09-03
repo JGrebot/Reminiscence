@@ -1,22 +1,31 @@
 cmake_minimum_required(VERSION 3.14)
-project(Reminiscence)
-
-# GoogleTest requires at least C++11
-set(CMAKE_CXX_STANDARD 11)
-
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+project(
+    "Reminiscence"
+    VERSION 0.1.0
+    LANGUAGES CXX
 )
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
 
+set(CMAKE_CXX_STANDARD 17)
+
+
+# All cmake options
+include(cmake/Option.cmake)
+
+# Fetch dependency
+include(cmake/Fetch.cmake)
+
+# Various cmake utilities: Clang tidy, cppcheck, doxygen and Ccache (if
+# activated in cmake/Option.cmake) and some settings: default build type,
+# prevent building in the source directory, always enabling the test if code
+# coverage is enabled.
+include(cmake/Utilities.cmake)
 
 # Set sources and headers.
 include(cmake/SourcesAndHeaders.cmake)
 
+# Adding executable (or resulting library)
+include(cmake/ExecutableAndBuildingLibrary.cmake)
 
-# Testing
+# Adding tests
 add_subdirectory(test)
+
