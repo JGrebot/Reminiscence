@@ -31,3 +31,10 @@ class Question {
 };
 
 
+// helper functions for sample_parse_file()
+template<class CharContainer> CharContainer file_get_contents(const char *filename);
+template<class CharContainer> size_t        file_get_contents(const char *filename, CharContainer *v);
+template<class CharContainer> void          file_put_contents(const char *filename, CharContainer const& v, const char* access="wb");
+void                                        file_put_contents(const char *filename, const char *buf, size_t sz, const char* access);
+
+

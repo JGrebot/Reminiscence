@@ -141,39 +141,39 @@ int main() {
     /* } */
 
     std::filesystem::path data_folderName {"/home/fitz/dev/Reminiscence/data"};
-    std::cout << data_folderName << std::endl;
-    std::cout << "Absolute path: " << std::filesystem::absolute(data_folderName) << std::endl;
-    std::cout << "fs::exists(data_folderName) : " << std::filesystem::exists(data_folderName) << std::endl;
-    std::cout << "Content : full path" << std::endl;
-    for (const auto & entry : std::filesystem::directory_iterator(data_folderName)){
-        std::cout << entry.path() << std::endl;
-    }
-    std::cout << "Content : only filename" << std::endl;
-    for (const auto & entry : std::filesystem::directory_iterator(data_folderName)){
-        std::cout << entry.path().filename() << std::endl;
-    }
-    std::cout << "Is there a program.yaml file ?" << std::endl;
-    for (const auto & entry : std::filesystem::directory_iterator(data_folderName)){
-        if(entry.path().filename().string() == "program.yaml"){
-            std::cout << "Yes !" << std::endl;
-        }
-    }
-    std::cout << "What is the current day ?" << std::endl;
-    // get current date, month, year. 
-    auto now = std::chrono::system_clock::now();
-    std::time_t now_c = std::chrono::system_clock::to_time_t(now);
-    struct tm *parts = std::localtime(&now_c);
-    int year    {1900 + parts->tm_year};
-    int month   {parts->tm_mon};
-    int day     {parts->tm_mday};
-    std::cout << "day   = "   << day      << std::endl;
-    std::cout << "month = " << month    << std::endl;
-    std::cout << "year  = "  << year     << std::endl;
-    std::cout << "What is the current day of the year ?" << std::endl;
-    std::cout << "day of year: " << get_day_of_year(day, month, year) << std::endl;
-    std::cout << "What are the task of this day ?" << std::endl;
+    /* std::cout << data_folderName << std::endl; */
+    /* std::cout << "Absolute path: " << std::filesystem::absolute(data_folderName) << std::endl; */
+    /* std::cout << "fs::exists(data_folderName) : " << std::filesystem::exists(data_folderName) << std::endl; */
+    /* std::cout << "Content : full path" << std::endl; */
+    /* for (const auto & entry : std::filesystem::directory_iterator(data_folderName)){ */
+    /*     std::cout << entry.path() << std::endl; */
+    /* } */
+    /* std::cout << "Content : only filename" << std::endl; */
+    /* for (const auto & entry : std::filesystem::directory_iterator(data_folderName)){ */
+    /*     std::cout << entry.path().filename() << std::endl; */
+    /* } */
+    /* std::cout << "Is there a program.yaml file ?" << std::endl; */
+    /* for (const auto & entry : std::filesystem::directory_iterator(data_folderName)){ */
+    /*     if(entry.path().filename().string() == "program.yaml"){ */
+    /*         std::cout << "Yes !" << std::endl; */
+    /*     } */
+    /* } */
+    /* std::cout << "What is the current day ?" << std::endl; */
+    /* // get current date, month, year. */ 
+    /* auto now = std::chrono::system_clock::now(); */
+    /* std::time_t now_c = std::chrono::system_clock::to_time_t(now); */
+    /* struct tm *parts = std::localtime(&now_c); */
+    /* int year    {1900 + parts->tm_year}; */
+    /* int month   {parts->tm_mon}; */
+    /* int day     {parts->tm_mday}; */
+    /* std::cout << "day   = "   << day      << std::endl; */
+    /* std::cout << "month = " << month    << std::endl; */
+    /* std::cout << "year  = "  << year     << std::endl; */
+    /* std::cout << "What is the current day of the year ?" << std::endl; */
+    /* std::cout << "day of year: " << get_day_of_year(day, month, year) << std::endl; */
+    /* std::cout << "What are the task of this day ?" << std::endl; */
 
-    /* DailyTask task { data_folderName}; */
+    DailyTask task { data_folderName};
 
 
 

@@ -12,15 +12,16 @@
 class DailyTask{
     public:
     DailyTask();
-    ~DailyTask();
-    DailyTask(std::string folderName);
+    ~DailyTask(){};
+    DailyTask(std::filesystem::path);
 
     void ask_all_questions();
     void print(int verbose);
 
     private:
-    void get_task_from_program_yaml_file();
+    int parse_folder(std::filesystem::path);
     void get_all_questions();
+    void parse_program_yaml(std::filesystem::path);
 
     std::map<int, std::vector<Question> > m_FolderQuestions;
     std::string m_FolderName;
