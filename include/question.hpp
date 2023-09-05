@@ -12,15 +12,14 @@
 class Question {
     public:
     Question();
-    Question(const char *);
+    Question(std::string);
      ~Question();
 
     void print();
     int ask_on_terminal();
-    void change_folder(); // TODO
 
     private:
-    void parse_file(const char *); // TODO
+    void parse_file(std::string); // TODO
     int get_answer_from_user();
     void check_data(); // TODO
 

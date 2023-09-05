@@ -1,5 +1,6 @@
 #include <question.hpp>
 #include <string>
+#include <cstring>
 #include <ryml.hpp>
 #include <ryml_std.hpp> 
 #include <c4/format.hpp> 
@@ -67,8 +68,8 @@ void file_put_contents(const char *filename, const char *buf, size_t sz, const c
 C4_SUPPRESS_WARNING_MSVC_POP
 
 
-void Question::parse_file(const char * filename){
-    std::string contents = file_get_contents<std::string>(filename);
+void Question::parse_file(std::string filename){
+    std::string contents = file_get_contents<std::string>(filename.c_str());
     m_data = ryml::parse_in_arena(ryml::to_csubstr(contents)); // immutable (csubstr) overload
 }
 
@@ -95,7 +96,7 @@ Question::~Question(){ }
  * @param filename   name of the yaml file containing the question and its
  *                   answer.
  */
-Question::Question(const char * filename){
+Question::Question(std::string filename){
     
     // filling m_data with filename content.
     this->parse_file(filename);

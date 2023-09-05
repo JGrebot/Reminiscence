@@ -127,16 +127,17 @@ int get_day_of_year(int day, int month, int year){
 
 int main() {
 
-    const char filename[] = "test.yaml";
+    /* const char filename[] = "test.yaml"; */
+    std::string filename = "/home/fitz/dev/Reminiscence/data/1/q1.yaml";
     
     /* Question a_question(filename); */
     /* a_question.print(); */
     /* int answer {a_question.ask_on_terminal()}; */
     /* if (answer == 0){ */
-    /*     std::cout << "je dois appeler une méthode de la classe parent pour changer le dossier de cette question" << std::endl; */
+    /*     std::cout << "je dois appeler une méthode de la classe dailytask pour changer le dossier de cette question" << std::endl; */
     /* } */
     /* else{ */
-    /*     std::cout << "je dois appeler une méthode de la classe parent pour changer le dossier de cette question" << std::endl; */
+    /*     std::cout << "je dois appeler une méthode de la classe dailytask pour changer le dossier de cette question" << std::endl; */
     /* } */
 
     std::filesystem::path data_folderName {"/home/fitz/dev/Reminiscence/data"};
