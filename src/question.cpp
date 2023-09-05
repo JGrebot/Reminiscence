@@ -1,10 +1,10 @@
 #include <question.hpp>
 #include <string>
 #include <cstring>
+#include <stdlib.h>
 #include <ryml.hpp>
 #include <ryml_std.hpp> 
 #include <c4/format.hpp> 
-#include <stdlib.h>
 
 
 
@@ -105,20 +105,20 @@ Question::Question(std::string filename){
  *
  * @return 1 for good answer (y), or 0 for bad answer (n).
  */
-int Question::get_answer_from_user(){
-    std::cout << "Did you find the answer ? (y/n) ";
-    std::string input_from_console;
-    std::cin >> input_from_console;
-    if (input_from_console[0] == 'y'){
-        std::cout << std::endl;
-        return 1;
-    }else if(input_from_console[0] == 'n'){
-        std::cout << std::endl;
-        return -1;
-    }else{
-        std::cout << std::endl;
-        return this->get_answer_from_user();
-    }
+int Question::get_answer_from_user() const{
+    std::string input;
+    char res;
+    do {
+        std::cout << "Did you find the answer ? (y/n) ";
+        std::getline(std::cin, input);
+        if (input[0] == 'y'){
+            std::cout << std::endl;
+            return 1;
+        }else if(input[0] == 'n'){
+            std::cout << std::endl;
+            return -1;
+        }
+    } while(1);
 }
 
 
@@ -131,12 +131,17 @@ int Question::get_answer_from_user(){
  *
  * @return answer: 1 for good response, -1 for bad response.
  */
-int Question::ask_on_terminal(){
+int Question::ask_on_terminal() const{
     system("clear");
     ryml::ConstNodeRef root = m_data.crootref();
     std::cout << "Question: " << root["question"].val() << std::endl;
-    std::cout << "Type any key to get answer: ";
-    std::cin.get();
+    std::string tmp = "a";
+    bool ok = false;
+    do {
+        std::cout << "Type Enter to get answer: ";
+        std::getline(std::cin, tmp);
+        (tmp.empty()) ? ok = true : ok = false;
+    } while(!ok);
     std::cout << "Answer: " << root["answer"].val() << std::endl;
     return this->get_answer_from_user();
 }
@@ -147,7 +152,7 @@ int Question::ask_on_terminal(){
  * debug purpose. 
  *
  */
-void Question::print(){
+void Question::print() const{
 
     ryml::ConstNodeRef root = m_data.crootref();
 

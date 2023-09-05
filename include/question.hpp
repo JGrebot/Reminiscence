@@ -1,11 +1,11 @@
-#include <ryml.hpp>
-#include <ryml_std.hpp> 
-#include <c4/format.hpp> 
 #include <iostream>
 #include <sstream>
 #include <vector>
 #include <array>
 #include <map>
+#include <ryml.hpp>
+#include <ryml_std.hpp> 
+#include <c4/format.hpp> 
 
 #pragma once
 
@@ -15,12 +15,12 @@ class Question {
     Question(std::string);
      ~Question();
 
-    void print();
-    int ask_on_terminal();
+    void print() const;
+    int ask_on_terminal() const;
 
     private:
     void parse_file(std::string); // TODO
-    int get_answer_from_user();
+    int get_answer_from_user() const;
     void check_data(); // TODO
 
     ryml::Tree  m_data;
