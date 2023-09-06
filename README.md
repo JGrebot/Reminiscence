@@ -5,6 +5,15 @@ I/O module (just un fichier cpp)
 - a function to read all yaml question/answer file from a folder. Output a structure of type ryml::Tree
 - a function to move the file from a folder X to a folder Y.
 
+## Dependency
+
+- rapid-yml from https://github.com/biojppm/rapidyaml . 
+    - Fetched and compiled on the fly.
+- cmd_line_parser from https://github.com/jermp/cmd_line_parser/tags .
+    - Header only library, v1.0.1 is already in the include folder.
+
+
+
 
 Une classe Daily_Task
     private:

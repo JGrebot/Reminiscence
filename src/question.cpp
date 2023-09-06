@@ -61,6 +61,7 @@ void file_put_contents(const char *filename, const char *buf, size_t sz, const c
 C4_SUPPRESS_WARNING_MSVC_POP
 
 
+
 void Question::parse_file(std::filesystem::path filename){
     std::string contents = file_get_contents<std::string>(filename.string().c_str());
     m_data = ryml::parse_in_arena(ryml::to_csubstr(contents)); // immutable (csubstr) overload
@@ -70,8 +71,8 @@ void Question::parse_file(std::filesystem::path filename){
 
 Question::Question(){
     ryml::Tree m_data {};
-    std::string m_name {""};
-    int m_folder {-1};
+    m_name = "";
+    m_folder = -1;
 }
 
 Question::~Question(){ }
@@ -102,6 +103,7 @@ Question::Question(std::filesystem::path filename){
 std::filesystem::path Question::get_path(){
     return m_name;
 };
+
 
 void Question::set_path(std::filesystem::path new_path){
     m_name = new_path;

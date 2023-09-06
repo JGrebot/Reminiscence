@@ -16,15 +16,11 @@ DailyTask::DailyTask(){
 }
 
 
-
-
 DailyTask::DailyTask(std::filesystem::path folderName){
     m_FolderName = folderName;
     m_resultSession["Correct   :"] = 0;
     m_resultSession["Incorrect :"] = 0;
     parse_folder(folderName);
-    ask_all_questions();
-
 }
 
 
