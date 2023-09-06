@@ -20,7 +20,8 @@ DailyTask::DailyTask(){
 
 DailyTask::DailyTask(std::filesystem::path folderName){
     m_FolderName = folderName;
-
+    m_resultSession["Correct   :"] = 0;
+    m_resultSession["Incorrect :"] = 0;
     parse_folder(folderName);
     ask_all_questions();
 
@@ -29,17 +30,58 @@ DailyTask::DailyTask(std::filesystem::path folderName){
 
 void DailyTask::ask_all_questions(){
     
-    int response_false {0};
-    int response_true {0};
-    for (const auto& [key, vecQuestions] : m_FolderQuestions) {
-        for(auto iq = vecQuestions.begin(); iq != vecQuestions.end(); iq ++){
-            (iq->ask_on_terminal() > 0) ? response_true++ : response_false++;
+    int response {0};
+    for (auto& [key, vecQuestions] : m_FolderQuestions) {
+        for(auto iq = vecQuestions.begin(); iq != vecQuestions.end(); ){
+            response = iq->ask_on_terminal(); 
+            (response > 0) ? m_resultSession["Correct   :"]++ : m_resultSession["Incorrect :"]++;
+            iq = moveQuestion(key, iq, response);
         }
     }
     std::cout << "you have finished !" << std::endl;
-    std::cout << "response_true = " << response_true << std::endl;
-    std::cout << "response_false = " << response_false << std::endl;
+    std::cout << "m_resultSession[\"Correct   :\"] = " << m_resultSession["Correct   :"] << std::endl;
+    std::cout << "m_resultSession[\"Incorrect :\"] = " << m_resultSession["Incorrect :"] << std::endl;
 }
+
+
+std::vector<Question>::iterator DailyTask::moveQuestion(const int key, std::vector<Question>::iterator iq, int response){
+
+    if(response > 0){
+        // Move the corresponding file
+        std::filesystem::path current_path = iq->get_path();
+        std::filesystem::path new_path = current_path.parent_path() / 
+                                         ".." / 
+                                         std::to_string(key + 1) / 
+                                         current_path.filename();
+        std::cout << "current_path = " << current_path << std::endl;
+        std::cout << "new_path = " << new_path << std::endl;
+        std::filesystem::rename(current_path, new_path);
+        iq->set_path(new_path);
+        
+        // Move the question in the internal map
+        iq = m_FolderQuestions[key].erase(iq);
+        m_FolderQuestions[key + 1].emplace_back(Question(new_path));
+
+    }else if (key > 1) {
+        // Move the corresponding file
+        std::filesystem::path current_path = iq->get_path();
+        std::filesystem::path new_path = current_path.parent_path() / 
+                                         ".." / 
+                                         std::to_string(key - 1) / 
+                                         current_path.filename();
+        std::cout << "current_path = " << current_path << std::endl;
+        std::cout << "new_path = " << new_path << std::endl;
+        std::filesystem::rename(current_path, new_path);
+        iq->set_path(new_path);
+        
+        // Move the question in the internal map
+        iq = m_FolderQuestions[key].erase(iq);
+        m_FolderQuestions[key - 1].emplace_back(Question(new_path));
+    }else{
+        iq ++;
+    }
+    return iq;
+};
 
 /**
  * Compute the number (over 365) of the current day.
@@ -93,16 +135,10 @@ int DailyTask::parse_folder(std::filesystem::path folderName){
     // Get the day of the year (an int between 1 and 365 of the current day)
     int day_of_year = get_day_of_year();
 
-    /* std::cout << "What is the current day of the year ?" << std::endl; */
-    /* std::cout << "day of year: " << day_of_year << std::endl; */
-
     // Getting current day as (day_of_year modulo NbChildrenOfprogram_task)
     ryml::ConstNodeRef root = program_task.crootref();
     int program_size = root.num_children();
     int day = day_of_year%program_size;
-    
-    /* std::cout << "program_size : " << program_size << std::endl; */
-    /* std::cout << "day : " << day << std::endl; */
 
     // Getting tasks corresponding of day from the program.yaml file
     std::vector<int> folderTasks; 
@@ -113,22 +149,12 @@ int DailyTask::parse_folder(std::filesystem::path folderName){
         folderTasks.emplace_back(tmp);
     }
 
-    /* std::cout << "keys_cday = " << keys_cday << std::endl; */
-    /* for(auto n : folderTasks){ */
-    /*     std::cout << n << std::endl; */
-    /* } */
-
     // Finally parse all the questions of the required tasks
     for(auto &t : folderTasks){
         for (const auto & question : std::filesystem::directory_iterator(folderName / std::to_string(t))){
-            m_FolderQuestions[t].emplace_back( Question(question.path().string()) );
-            /* std::cout << question.path() << std::endl; */
+            m_FolderQuestions[t].emplace_back( Question(std::filesystem::absolute(question.path())) );
         }
     }
-
-    /* m_FolderQuestions[1][0].print(); */
-    /* m_FolderQuestions[1][1].print(); */
-    /* m_FolderQuestions[1][2].print(); */
 
     return 0;
 }

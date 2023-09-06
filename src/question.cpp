@@ -61,8 +61,8 @@ void file_put_contents(const char *filename, const char *buf, size_t sz, const c
 C4_SUPPRESS_WARNING_MSVC_POP
 
 
-void Question::parse_file(std::string filename){
-    std::string contents = file_get_contents<std::string>(filename.c_str());
+void Question::parse_file(std::filesystem::path filename){
+    std::string contents = file_get_contents<std::string>(filename.string().c_str());
     m_data = ryml::parse_in_arena(ryml::to_csubstr(contents)); // immutable (csubstr) overload
 }
 
@@ -89,13 +89,24 @@ Question::~Question(){ }
  * @param filename   name of the yaml file containing the question and its
  *                   answer.
  */
-Question::Question(std::string filename){
+Question::Question(std::filesystem::path filename){
     
     // filling m_data with filename content.
     this->parse_file(filename);
-    std::string m_name {""};
+    m_name = filename;
     int m_folder {-1};
 }
+
+
+
+std::filesystem::path Question::get_path(){
+    return m_name;
+};
+
+void Question::set_path(std::filesystem::path new_path){
+    m_name = new_path;
+};
+
 
 
 /**
@@ -107,7 +118,6 @@ Question::Question(std::string filename){
  */
 int Question::get_answer_from_user() const{
     std::string input;
-    char res;
     do {
         std::cout << "Did you find the answer ? (y/n) ";
         std::getline(std::cin, input);

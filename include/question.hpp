@@ -6,25 +6,29 @@
 #include <ryml.hpp>
 #include <ryml_std.hpp> 
 #include <c4/format.hpp> 
+#include <filesystem>
 
 #pragma once
 
 class Question {
     public:
     Question();
-    Question(std::string);
+    Question(std::filesystem::path);
      ~Question();
 
     void print() const;
     int ask_on_terminal() const;
 
+    std::filesystem::path get_path();
+    void set_path(std::filesystem::path);
+
     private:
-    void parse_file(std::string); // TODO
+    void parse_file(std::filesystem::path); // TODO
     int get_answer_from_user() const;
     void check_data(); // TODO
 
     ryml::Tree  m_data;
-    std::string m_name;
+    std::filesystem::path m_name;
     int m_folder;
 
     // Opérateur ?
