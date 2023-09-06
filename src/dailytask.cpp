@@ -1,4 +1,5 @@
 #include <dailytask.hpp>
+#include <iterator>
 #include <question.hpp>
 #include <string>
 #include <stdlib.h>
@@ -16,22 +17,31 @@ DailyTask::DailyTask(){
 }
 
 
-DailyTask::DailyTask(std::filesystem::path folderName){
+DailyTask::DailyTask(std::filesystem::path folderName, int reset_down){
     m_FolderName = folderName;
     m_resultSession["Correct   :"] = 0;
     m_resultSession["Incorrect :"] = 0;
-    parse_folder(folderName);
+    parse_folder(folderName, reset_down);
 }
 
+void DailyTask::print(){
+    for (auto& [key, vecQuestions] : m_FolderQuestions) {
+        for(auto iq = vecQuestions.begin(); iq != vecQuestions.end(); iq++){
+            iq->print();
+        }
+    }
+}
 
 void DailyTask::ask_all_questions(){
     
     int response {0};
+    int target_key {0};
     for (auto& [key, vecQuestions] : m_FolderQuestions) {
         for(auto iq = vecQuestions.begin(); iq != vecQuestions.end(); ){
             response = iq->ask_on_terminal(); 
             (response > 0) ? m_resultSession["Correct   :"]++ : m_resultSession["Incorrect :"]++;
-            iq = moveQuestion(key, iq, response);
+            (key == 1 && response == -1) ? target_key = key : target_key = key + response ;
+            iq = moveQuestion(key, iq, target_key);
         }
     }
     std::cout << "you have finished !" << std::endl;
@@ -40,44 +50,53 @@ void DailyTask::ask_all_questions(){
 }
 
 
-std::vector<Question>::iterator DailyTask::moveQuestion(const int key, std::vector<Question>::iterator iq, int response){
+void DailyTask::down_all_questions(){
+    int target_key {0};
+    int max_key = m_FolderQuestions.begin()->first;
 
-    if(response > 0){
-        // Move the corresponding file
-        std::filesystem::path current_path = iq->get_path();
-        std::filesystem::path new_path = current_path.parent_path() / 
-                                         ".." / 
-                                         std::to_string(key + 1) / 
-                                         current_path.filename();
-        std::cout << "current_path = " << current_path << std::endl;
-        std::cout << "new_path = " << new_path << std::endl;
-        std::filesystem::rename(current_path, new_path);
-        iq->set_path(new_path);
-        
-        // Move the question in the internal map
-        iq = m_FolderQuestions[key].erase(iq);
-        m_FolderQuestions[key + 1].emplace_back(Question(new_path));
+    // This loop needs to go from the lower key (1) to the highest (7).
+    for(int k=1; k<=max_key; k++){
+        for(auto iq = m_FolderQuestions[k].begin(); iq != m_FolderQuestions[k].end(); ){
+            target_key = std::max(k - 1, 1);
+            iq = moveQuestion(k, iq, target_key);
+        }
+    }
+    std::cout << "you have finished moving all question down a folder !" << std::endl;
+}
 
-    }else if (key > 1) {
-        // Move the corresponding file
-        std::filesystem::path current_path = iq->get_path();
-        std::filesystem::path new_path = current_path.parent_path() / 
-                                         ".." / 
-                                         std::to_string(key - 1) / 
-                                         current_path.filename();
-        std::cout << "current_path = " << current_path << std::endl;
-        std::cout << "new_path = " << new_path << std::endl;
-        std::filesystem::rename(current_path, new_path);
-        iq->set_path(new_path);
-        
-        // Move the question in the internal map
-        iq = m_FolderQuestions[key].erase(iq);
-        m_FolderQuestions[key - 1].emplace_back(Question(new_path));
-    }else{
+
+void DailyTask::reset_all_questions(){
+    int target_key {1};
+    for (auto& [key, vecQuestions] : m_FolderQuestions) {
+        for(auto iq = vecQuestions.begin(); iq != vecQuestions.end(); ){
+            iq = moveQuestion(key, iq, target_key);
+        }
+    }
+    std::cout << "you have finished resetting !" << std::endl;
+}
+
+
+std::vector<Question>::iterator DailyTask::moveQuestion(const int key, std::vector<Question>::iterator iq, int target_key){
+
+    if(target_key == 1 && key == 1){
         iq ++;
+    }else{ 
+        // Move the corresponding file
+        std::filesystem::path current_path = iq->get_path();
+        std::filesystem::path new_path = current_path.parent_path() / 
+                                         ".." / 
+                                         std::to_string(target_key) / 
+                                         current_path.filename();
+        std::filesystem::rename(current_path, new_path);
+        iq->set_path(new_path);
+        
+        // Move the question in the internal map
+        iq = m_FolderQuestions[key].erase(iq);
+        m_FolderQuestions[target_key].emplace_back(Question(new_path));
     }
     return iq;
 };
+
 
 /**
  * Compute the number (over 365) of the current day.
@@ -111,7 +130,7 @@ int get_day_of_year(){
 }
 
 
-int DailyTask::parse_folder(std::filesystem::path folderName){
+int DailyTask::parse_folder(std::filesystem::path folderName, int reset_down){
 
     auto program_yaml_path = folderName / "program.yaml";
 
@@ -137,12 +156,22 @@ int DailyTask::parse_folder(std::filesystem::path folderName){
     int day = day_of_year%program_size;
 
     // Getting tasks corresponding of day from the program.yaml file
+    // or getting all tasks if reset/down is asked.
     std::vector<int> folderTasks; 
-    ryml::csubstr keys_cday = ryml::to_csubstr("Day" + std::to_string(day));
     int tmp = 0;
-    for(ryml::ConstNodeRef n : root[keys_cday].children()){
-        n >> tmp;
-        folderTasks.emplace_back(tmp);
+    ryml::csubstr keys_cday = ryml::to_csubstr("Day" + std::to_string(day));
+
+    switch(reset_down) {
+        case 0:
+            for(ryml::ConstNodeRef n : root[keys_cday].children()){
+                n >> tmp;
+                folderTasks.emplace_back(tmp);
+            }
+            break;
+        case 1:
+            // Reset or down
+            folderTasks = {1, 2, 3, 4, 5, 6, 7};
+            break;
     }
 
     // Finally parse all the questions of the required tasks

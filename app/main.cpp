@@ -50,20 +50,21 @@ int main(int argc, char** argv) {
         std::cout << "You cannot both reset and down all questions, you must choose one of the two." << std::endl;
         return 1;
     }
+    int reset_down = (to_reset || to_down) ? 1 : 0;
 
     std::cout << "dataFolderPath: " << dataFolderPath << std::endl;
     std::cout << "to_reset: " << to_reset << std::endl;
     std::cout << "to_down: " << to_down << std::endl;
     std::cout << "data_folderName: " << data_folderName << std::endl;
 
-    DailyTask task { data_folderName};
+    DailyTask task { data_folderName, reset_down};
 
     if(to_reset){
-
+        task.reset_all_questions();
         return 0;
     }
     if(to_down){
-
+        task.down_all_questions();
         return 0;
     }
 

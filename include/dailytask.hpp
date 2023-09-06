@@ -15,13 +15,15 @@ class DailyTask{
     public:
     DailyTask();
     ~DailyTask(){};
-    DailyTask(std::filesystem::path);
+    DailyTask(std::filesystem::path, int);
 
     void ask_all_questions();
-    void print(int verbose);
+    void reset_all_questions();
+    void down_all_questions();
+    void print();
 
     private:
-    int parse_folder(std::filesystem::path);
+    int parse_folder(std::filesystem::path, int);
     void get_all_questions();
     void parse_program_yaml(std::filesystem::path);
     std::vector<Question>::iterator moveQuestion(const int, std::vector<Question>::iterator, int);
