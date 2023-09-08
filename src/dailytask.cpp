@@ -1,4 +1,5 @@
 #include <dailytask.hpp>
+#include <numeric>
 #include <iterator>
 #include <question.hpp>
 #include <string>
@@ -134,6 +135,33 @@ int get_day_of_year(){
 }
 
 
+void DailyTask::check_Folders(std::filesystem::path folderName, int max_taskFolder){
+
+    std::vector<int> folderTasks(max_taskFolder + 1);
+    std::iota(folderTasks.begin(), folderTasks.end(), 1); 
+    for(auto &t : folderTasks){
+        if (! std::filesystem::exists(folderName / std::to_string(t))){
+            std::filesystem::create_directory(folderName / std::to_string(t));
+        }
+    }
+}
+
+
+int DailyTask::get_Max_TaskFolder(ryml::ConstNodeRef root){
+    int max_taskFolder {0};
+    int tmp {0};
+    for(ryml::ConstNodeRef n : root.children())
+    {
+        for(ryml::ConstNodeRef c : n.children()){
+            c >> tmp;
+            max_taskFolder = std::max(max_taskFolder, tmp);
+        }
+    }
+
+    return max_taskFolder;
+}
+
+
 int DailyTask::parse_folder(std::filesystem::path folderName, int reset_down){
 
     auto program_yaml_path = folderName / "program.yaml";
@@ -158,6 +186,11 @@ int DailyTask::parse_folder(std::filesystem::path folderName, int reset_down){
     ryml::ConstNodeRef root = program_task.crootref();
     int program_size = root.num_children();
     int day = day_of_year%program_size;
+
+    // Getting maximum taskFolder inside the program.yaml file, and creating
+    // directory if necessary.
+    int max_taskFolder = get_Max_TaskFolder(root);
+    check_Folders(folderName, max_taskFolder);
 
     // Getting tasks corresponding of day from the program.yaml file
     // or getting all tasks if reset/down is asked.

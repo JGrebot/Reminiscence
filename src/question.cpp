@@ -149,7 +149,7 @@ int Question::get_answer_from_user() const{
  * @return answer: 1 for good response, -1 for bad response.
  */
 int Question::ask_on_terminal(){
-    system("clear");
+    /* system("clear"); */
     ryml::ConstNodeRef root = m_data.crootref();
     std::cout << "Question: " << root["question"].val() << std::endl;
     std::string tmp = "a";

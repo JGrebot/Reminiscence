@@ -1,3 +1,4 @@
+#include "c4/yml/node.hpp"
 #include <question.hpp>
 #include <string>
 #include <stdlib.h>
@@ -20,6 +21,8 @@ class DailyTask{
     void ask_all_questions();
     void reset_all_questions();
     void down_all_questions();
+    void check_Folders(std::filesystem::path, int);
+    int get_Max_TaskFolder(ryml::ConstNodeRef);
     void print();
 
     private:
