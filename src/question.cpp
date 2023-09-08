@@ -73,6 +73,7 @@ Question::Question(){
     ryml::Tree m_data {};
     m_name = "";
     m_folder = -1;
+    m_not_already_asked = true;
 }
 
 Question::~Question(){ }
@@ -90,12 +91,13 @@ Question::~Question(){ }
  * @param filename   name of the yaml file containing the question and its
  *                   answer.
  */
-Question::Question(std::filesystem::path filename){
-    
+Question::Question(std::filesystem::path filename, bool not_already_ask){
+    //
     // filling m_data with filename content.
     this->parse_file(filename);
     m_name = filename;
-    int m_folder {-1};
+    m_not_already_asked = true;
+    m_not_already_asked = not_already_ask;
 }
 
 
@@ -109,6 +111,9 @@ void Question::set_path(std::filesystem::path new_path){
     m_name = new_path;
 };
 
+bool Question::not_already_ask(){
+    return m_not_already_asked;
+};
 
 
 /**
@@ -143,7 +148,7 @@ int Question::get_answer_from_user() const{
  *
  * @return answer: 1 for good response, -1 for bad response.
  */
-int Question::ask_on_terminal() const{
+int Question::ask_on_terminal(){
     system("clear");
     ryml::ConstNodeRef root = m_data.crootref();
     std::cout << "Question: " << root["question"].val() << std::endl;
@@ -155,6 +160,7 @@ int Question::ask_on_terminal() const{
         (tmp.empty()) ? ok = true : ok = false;
     } while(!ok);
     std::cout << "Answer: " << root["answer"].val() << std::endl;
+    m_not_already_asked = false;
     return this->get_answer_from_user();
 }
 

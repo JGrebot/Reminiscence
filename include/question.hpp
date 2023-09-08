@@ -13,14 +13,15 @@
 class Question {
     public:
     Question();
-    Question(std::filesystem::path);
+    Question(std::filesystem::path, bool);
      ~Question();
 
     void print() const;
-    int ask_on_terminal() const;
+    int ask_on_terminal();
 
     std::filesystem::path get_path();
     void set_path(std::filesystem::path);
+    bool not_already_ask();
 
     private:
     void parse_file(std::filesystem::path); // TODO
@@ -30,6 +31,7 @@ class Question {
     ryml::Tree  m_data;
     std::filesystem::path m_name;
     int m_folder;
+    bool m_not_already_asked;
 
     // Opérateur ?
 };

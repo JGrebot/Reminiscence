@@ -38,10 +38,14 @@ void DailyTask::ask_all_questions(){
     int target_key {0};
     for (auto& [key, vecQuestions] : m_FolderQuestions) {
         for(auto iq = vecQuestions.begin(); iq != vecQuestions.end(); ){
-            response = iq->ask_on_terminal(); 
-            (response > 0) ? m_resultSession["Correct   :"]++ : m_resultSession["Incorrect :"]++;
-            (key == 1 && response == -1) ? target_key = key : target_key = key + response ;
-            iq = moveQuestion(key, iq, target_key);
+            if(iq->not_already_ask()){
+                response = iq->ask_on_terminal(); 
+                (response > 0) ? m_resultSession["Correct   :"]++ : m_resultSession["Incorrect :"]++;
+                (key == 1 && response == -1) ? target_key = key : target_key = key + response ;
+                iq = moveQuestion(key, iq, target_key);
+            }else{
+                iq++;
+            }
         }
     }
     std::cout << "you have finished !" << std::endl;
@@ -92,7 +96,7 @@ std::vector<Question>::iterator DailyTask::moveQuestion(const int key, std::vect
         
         // Move the question in the internal map
         iq = m_FolderQuestions[key].erase(iq);
-        m_FolderQuestions[target_key].emplace_back(Question(new_path));
+        m_FolderQuestions[target_key].emplace_back(Question(new_path, false));
     }
     return iq;
 };
@@ -177,7 +181,7 @@ int DailyTask::parse_folder(std::filesystem::path folderName, int reset_down){
     // Finally parse all the questions of the required tasks
     for(auto &t : folderTasks){
         for (const auto & question : std::filesystem::directory_iterator(folderName / std::to_string(t))){
-            m_FolderQuestions[t].emplace_back( Question(std::filesystem::absolute(question.path())) );
+            m_FolderQuestions[t].emplace_back( Question(std::filesystem::absolute(question.path()), true) );
         }
     }
 
