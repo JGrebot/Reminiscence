@@ -1,3 +1,4 @@
+#include "dailytask.hpp"
 #include <question.hpp>
 #include <string>
 #include <cstring>
@@ -5,6 +6,19 @@
 #include <ryml.hpp>
 #include <ryml_std.hpp> 
 #include <c4/format.hpp> 
+
+
+
+std::string  presentation_string =R"( 
+  _____                _       _                             
+ |  __ \              (_)     (_)                            
+ | |__) |___ _ __ ___  _ _ __  _ ___  ___ ___ _ __   ___ ___ 
+ |  _  // _ \ '_ ` _ \| | '_ \| / __|/ __/ _ \ '_ \ / __/ _ \
+ | | \ \  __/ | | | | | | | | | \__ \ (_|  __/ | | | (_|  __/
+ |_|  \_\___|_| |_| |_|_|_| |_|_|___/\___\___|_| |_|\___\___|)";
+
+
+
 
 
 
@@ -74,6 +88,7 @@ Question::Question(){
     m_name = "";
     m_folder = -1;
     m_not_already_asked = true;
+    m_pDailyTask = nullptr;
 }
 
 Question::~Question(){ }
@@ -91,13 +106,13 @@ Question::~Question(){ }
  * @param filename   name of the yaml file containing the question and its
  *                   answer.
  */
-Question::Question(std::filesystem::path filename, bool not_already_ask){
+Question::Question(std::filesystem::path filename, bool not_already_ask, DailyTask* p){
     //
     // filling m_data with filename content.
     this->parse_file(filename);
     m_name = filename;
-    m_not_already_asked = true;
     m_not_already_asked = not_already_ask;
+    m_pDailyTask = p;
 }
 
 
@@ -141,7 +156,7 @@ int Question::get_answer_from_user() const{
 
 /**
  * Ask the question on terminal.
- *      - Clear the terminal. 
+ *      - Clear the terminal.
  *      - Display the question.
  *      - display the answer after a user input.
  *
@@ -149,9 +164,23 @@ int Question::get_answer_from_user() const{
  * @return answer: 1 for good response, -1 for bad response.
  */
 int Question::ask_on_terminal(){
-    /* system("clear"); */
+    system("clear");
     ryml::ConstNodeRef root = m_data.crootref();
-    std::cout << "Question: " << root["question"].val() << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << presentation_string << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << "folderName = " <<  m_pDailyTask->get_folderName() << std::endl;
+    std::cout << "Question Number 1:" << std::endl;
+    std::cout << "Question Number 1:" << std::endl;
+    std::cout << "Question Number 1:" << std::endl;
+    std::cout << "Good answer: 4/5" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Question: " << std::endl;
+    std::cout << std::endl;
+    std::cout << root["question"].val() << std::endl;
+    std::cout << std::endl;
     std::string tmp = "a";
     bool ok = false;
     do {
@@ -159,7 +188,11 @@ int Question::ask_on_terminal(){
         std::getline(std::cin, tmp);
         (tmp.empty()) ? ok = true : ok = false;
     } while(!ok);
-    std::cout << "Answer: " << root["answer"].val() << std::endl;
+    std::cout << std::endl;
+    std::cout << "Answer: " << std::endl;
+    std::cout << std::endl;
+    std::cout << root["answer"].val() << std::endl;
+    std::cout << std::endl;
     m_not_already_asked = false;
     return this->get_answer_from_user();
 }

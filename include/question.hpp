@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -7,13 +9,14 @@
 #include <ryml_std.hpp> 
 #include <c4/format.hpp> 
 #include <filesystem>
+#include <dailytask.hpp>
 
-#pragma once
+class DailyTask;
 
 class Question {
     public:
     Question();
-    Question(std::filesystem::path, bool);
+    Question(std::filesystem::path, bool, DailyTask*);
      ~Question();
 
     void print() const;
@@ -32,6 +35,7 @@ class Question {
     std::filesystem::path m_name;
     int m_folder;
     bool m_not_already_asked;
+    DailyTask* m_pDailyTask;
 
     // Opérateur ?
 };

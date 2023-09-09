@@ -12,6 +12,7 @@
 #include <c4/format.hpp> 
 
 
+
 DailyTask::DailyTask(){
     std::map<int, std::vector<Question> > m_FolderQuestions {};
     std::string m_FolderName {};
@@ -25,12 +26,17 @@ DailyTask::DailyTask(std::filesystem::path folderName, int reset_down){
     parse_folder(folderName, reset_down);
 }
 
+
 void DailyTask::print(){
     for (auto& [key, vecQuestions] : m_FolderQuestions) {
         for(auto iq = vecQuestions.begin(); iq != vecQuestions.end(); iq++){
             iq->print();
         }
     }
+}
+
+std::string DailyTask::get_folderName(){
+    return m_FolderName;
 }
 
 void DailyTask::ask_all_questions(){
@@ -97,7 +103,7 @@ std::vector<Question>::iterator DailyTask::moveQuestion(const int key, std::vect
         
         // Move the question in the internal map
         iq = m_FolderQuestions[key].erase(iq);
-        m_FolderQuestions[target_key].emplace_back(Question(new_path, false));
+        m_FolderQuestions[target_key].emplace_back(Question(new_path, false, this));
     }
     return iq;
 };
@@ -214,7 +220,7 @@ int DailyTask::parse_folder(std::filesystem::path folderName, int reset_down){
     // Finally parse all the questions of the required tasks
     for(auto &t : folderTasks){
         for (const auto & question : std::filesystem::directory_iterator(folderName / std::to_string(t))){
-            m_FolderQuestions[t].emplace_back( Question(std::filesystem::absolute(question.path()), true) );
+            m_FolderQuestions[t].emplace_back( Question(std::filesystem::absolute(question.path()), true, this));
         }
     }
 

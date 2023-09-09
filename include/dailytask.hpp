@@ -1,3 +1,4 @@
+#pragma once
 #include "c4/yml/node.hpp"
 #include <question.hpp>
 #include <string>
@@ -9,7 +10,6 @@
 #include <filesystem>
 
 
-#pragma once
 
 
 class DailyTask{
@@ -23,6 +23,7 @@ class DailyTask{
     void down_all_questions();
     void check_Folders(std::filesystem::path, int);
     int get_Max_TaskFolder(ryml::ConstNodeRef);
+    std::string get_folderName();
     void print();
 
     private:
