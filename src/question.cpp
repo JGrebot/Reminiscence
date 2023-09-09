@@ -22,12 +22,6 @@ std::string  presentation_string =R"(
 
 
 
-
-
-
-
-
-
 C4_SUPPRESS_WARNING_MSVC_WITH_PUSH(4996) // fopen: this function or variable may be unsafe
 /** load a file from disk and return a newly created CharContainer */
 template<class CharContainer>
