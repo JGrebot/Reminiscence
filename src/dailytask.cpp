@@ -16,13 +16,15 @@
 DailyTask::DailyTask(){
     std::map<int, std::vector<Question> > m_FolderQuestions {};
     std::string m_FolderName {};
+    m_programDay = 0;
 }
 
 
 DailyTask::DailyTask(std::filesystem::path folderName, int reset_down){
     m_FolderName = folderName;
-    m_resultSession["Correct   :"] = 0;
-    m_resultSession["Incorrect :"] = 0;
+    m_resultSession["Correct"] = 0;
+    m_resultSession["Incorrect"] = 0;
+    m_programDay = -1;
     parse_folder(folderName, reset_down);
 }
 
@@ -35,8 +37,25 @@ void DailyTask::print(){
     }
 }
 
+// Getters
 std::string DailyTask::get_folderName(){
     return m_FolderName;
+}
+
+int DailyTask::get_good_answer(){
+    return m_resultSession["Correct"];
+}
+
+int DailyTask::get_wrong_answer(){
+    return m_resultSession["Incorrect"];
+}
+
+int DailyTask::get_programDay(){
+    return m_programDay;
+}
+
+std::map<int, std::vector<Question>, std::greater<int> > DailyTask::get_folderQuestion(){
+    return m_FolderQuestions; 
 }
 
 void DailyTask::ask_all_questions(){
@@ -47,7 +66,7 @@ void DailyTask::ask_all_questions(){
         for(auto iq = vecQuestions.begin(); iq != vecQuestions.end(); ){
             if(iq->not_already_ask()){
                 response = iq->ask_on_terminal(); 
-                (response > 0) ? m_resultSession["Correct   :"]++ : m_resultSession["Incorrect :"]++;
+                (response > 0) ? m_resultSession["Correct"]++ : m_resultSession["Incorrect"]++;
                 (key == 1 && response == -1) ? target_key = key : target_key = key + response ;
                 iq = moveQuestion(key, iq, target_key);
             }else{
@@ -56,8 +75,8 @@ void DailyTask::ask_all_questions(){
         }
     }
     std::cout << "you have finished !" << std::endl;
-    std::cout << "m_resultSession[\"Correct   :\"] = " << m_resultSession["Correct   :"] << std::endl;
-    std::cout << "m_resultSession[\"Incorrect :\"] = " << m_resultSession["Incorrect :"] << std::endl;
+    std::cout << "m_resultSession[\"Correct\"] = " << m_resultSession["Correct"] << std::endl;
+    std::cout << "m_resultSession[\"Incorrect\"] = " << m_resultSession["Incorrect"] << std::endl;
 }
 
 
@@ -192,6 +211,7 @@ int DailyTask::parse_folder(std::filesystem::path folderName, int reset_down){
     ryml::ConstNodeRef root = program_task.crootref();
     int program_size = root.num_children();
     int day = day_of_year%program_size;
+    m_programDay = day;
 
     // Getting maximum taskFolder inside the program.yaml file, and creating
     // directory if necessary.

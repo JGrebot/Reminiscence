@@ -24,6 +24,10 @@ class DailyTask{
     void check_Folders(std::filesystem::path, int);
     int get_Max_TaskFolder(ryml::ConstNodeRef);
     std::string get_folderName();
+    int get_good_answer();
+    int get_wrong_answer();
+    int get_programDay();
+    std::map<int, std::vector<Question>, std::greater<int> > get_folderQuestion();
     void print();
 
     private:
@@ -35,4 +39,5 @@ class DailyTask{
     std::map<int, std::vector<Question>, std::greater<int> > m_FolderQuestions;
     std::map<std::string, int>  m_resultSession;
     std::string m_FolderName;
+    int m_programDay;
 };
