@@ -2,7 +2,11 @@
 # 
 help_str = """
 By Jérémy Grebot, 09/04/2023.
-This script generate a daily task program yaml file. This file has the format:
+python3 generate_daily_task nbDay nbCat [--catFreq freq_1 freq_2 ... freq_nbCat]
+
+This script generate a daily task program yaml file. On a period of nbDay,
+several category are associated to each day. The maximum number of category is
+specified with nbCat. This file has the format:
     Day1:
         - 1
         - 2
@@ -63,9 +67,10 @@ cats_frequency = args.CatFreq
 # Checking enough category frequency are provided (8 by default).
 #
 if len(cats_frequency) < nb_cat:
-    print("Please provide as many category frequency (" +   \
-          str(len(cats_frequency)) +                        \
-          " provided) as you specified category (" +        \
+    print("Please provide as many category frequency (" +    \
+          str(len(cats_frequency)) +                         \
+          " provided) as you specified the maximum number" + \
+          "category (" + \
           str(nb_cat) + ").")
     print("Error !")
     sys.exit()
