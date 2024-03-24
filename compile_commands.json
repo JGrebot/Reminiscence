@@ -1,0 +1,122 @@
+[
+{
+  "directory": "/home/fitz/dev/Reminiscence/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/include -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -g -o CMakeFiles/Reminiscence.dir/app/main.cpp.o -c /home/fitz/dev/Reminiscence/app/main.cpp",
+  "file": "/home/fitz/dev/Reminiscence/app/main.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/include -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -g -o CMakeFiles/Reminiscence.dir/src/question.cpp.o -c /home/fitz/dev/Reminiscence/src/question.cpp",
+  "file": "/home/fitz/dev/Reminiscence/src/question.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/include -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -g -o CMakeFiles/Reminiscence.dir/src/dailytask.cpp.o -c /home/fitz/dev/Reminiscence/src/dailytask.cpp",
+  "file": "/home/fitz/dev/Reminiscence/src/dailytask.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/src/c4/yml/common.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/common.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/common.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/src/c4/yml/node.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/node.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/node.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/src/c4/yml/parse.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/parse.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/parse.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/src/c4/yml/preprocess.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/preprocess.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/preprocess.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/src/c4/yml/tree.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/tree.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src/c4/yml/tree.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/base64.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/base64.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/base64.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/char_traits.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/char_traits.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/char_traits.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/error.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/error.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/error.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/format.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/format.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/format.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/language.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/language.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/language.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/memory_resource.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/memory_resource.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/memory_resource.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/memory_util.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/memory_util.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/memory_util.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/src -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/utf.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/utf.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/utf.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/c4core.dir/src/c4/base64.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/base64.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/base64.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/c4core.dir/src/c4/char_traits.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/char_traits.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/char_traits.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/c4core.dir/src/c4/error.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/error.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/error.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/c4core.dir/src/c4/format.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/format.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/format.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/c4core.dir/src/c4/language.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/language.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/language.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/c4core.dir/src/c4/memory_resource.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/memory_resource.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/memory_resource.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/c4core.dir/src/c4/memory_util.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/memory_util.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/memory_util.cpp"
+},
+{
+  "directory": "/home/fitz/dev/Reminiscence/build/_deps/ryml-build/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src -std=c++17 -o CMakeFiles/c4core.dir/src/c4/utf.cpp.o -c /home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/utf.cpp",
+  "file": "/home/fitz/dev/Reminiscence/build/_deps/ryml-src/ext/c4core/src/c4/utf.cpp"
+}
+]
