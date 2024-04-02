@@ -1,0 +1,6 @@
+question: "What are the two case where a line break is not equivalent to a space ?"
+answer: "\n
+  1. In a line comment, //\n
+  2. In macro to preprocessor (need details on this answer (question EOL.yaml)\n"
+
+

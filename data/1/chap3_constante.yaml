@@ -1,0 +1,22 @@
+question: "Que fait const ? Quand l'utiliser ? et l'expression doit-elle aussi être constante ?\n
+Que fait constexpr ? Quelle est sa relation avec const ?\n
+Donne un exemple où une variable déclarée const n'est pas utilisable dans une expression constexpr.\n"
+answer: "\n
+  Dans l'instruction const int n = 10;\n
+  const assure que les instructions modifiant n seront rejetées à la compilation.\n
+  const s'utilise lors de l'initialisation d'une variable.\n
+  l'expression donnant sa valeur à n n'est pas nécessairement un littéral ou une constante\n
+  int p = 2; const int n = 2*p; compile et est correct !\n
+  \n
+  constexpr désigne une variable constante dont la valeur est connue lors de la compilation,\n
+  on peut obtenir un gain de temps à l'exécution. Le compilateur va utiliser cette information.\n
+  \n
+  constexpr implique const, mais la réciproque est fausse.\n
+  \n
+  int n = 2;\n
+  const int p = n;\n
+  constexpr int m = 2*p;\n
+  Cet exemple provoque une erreur de compilation.\n
+  \n"
+
+

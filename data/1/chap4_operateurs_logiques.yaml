@@ -1,0 +1,38 @@
+question: "\n
+  Quels sont les trois opérateurs logiques ?\n
+  Quel est le type renvoyé par ces opérateurs ?\n
+  Quels est le type des opérandes ?\n
+  Quelles sont les règles fournissant un résultat ?\n
+  Quelles sont les règles de priorité ? \n
+  Rajouter des parenthèses à a<b && c<d // ! a == b \n
+  Que se passe-t-il dans l'expression: int a=1; if((a<a)&&(a++)){...}; cout << a;  ?\n
+  Que se passe-t-il dans l'expression: int a=1; if((a==a)||(a++)){...}; cout << a;  ?\n
+  Comment ce phénomène s'appelle-t-il ?\n
+  "
+answer: "\n
+  et (&&), ou (||) et non (!).\n
+  \n
+  Ces opérateurs renvoient un bool.\n
+  \n
+  Les opérandes sont de types numériques, (int ou float ou pointeur).\n
+  \n
+  short, char, bool ou int sont utilisables via les conversions implicites.\n
+  \n
+  Les règles sont: valeur nulle correspond à faux, et les valeurs non nulles sont vraies.\n
+  \n
+  Les règles de priorité: ! a une priorité supérieure à tous les opérateurs arithmétiques \n
+  binaires et aux opérateurs relationnels. || est moins prioritaire que &&.\n
+  \n
+  (a<b) && (c<d) //  (!a) == b. \n
+  \n
+  a est égal à 1 dans les deux cas (1 est affiché).\n
+  les opérateurs && et || évalue uniquement la première opérande. Si cela\n
+  suffit à décider, alors la seconde opérande n'est pas évaluée. \n
+  Cela s'appelle un court-circuit des opérateurs && et ||.\n
+  \n
+  Rajouter dans la question, ou une question: \n
+  Rajouter les parenthèses: !-a+b<-c/d==!a||-b<!a==c ??\n
+  Et en faire 3 autres.\n
+  \n"
+
+

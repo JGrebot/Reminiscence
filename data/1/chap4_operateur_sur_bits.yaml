@@ -1,0 +1,33 @@
+question: "Quelle la liste de tous les opérateurs sur bits ?\n
+Quels sont les types sur lequels opèrent ces opérateurs ?\n
+Quels est le sens de chacun de ces opérateurs ?\n
+  \n
+Si (signed)   n = 000010101101110   1010110111011110\n
+Si (unsigned) p = 000010101101110   1010110111011110\n
+Que vaut n << 2, n >> 3 et p >> 3 ?\n
+\n
+Que permet n & 0xF ?\n
+Que permet n & 0x8000 ?\n
+Comment vérifier si un entier est pair ou impair avec ces opérateurs ?\n
+  \n"
+answer: "\n
+  & ^ | <<, >> et ~.\n
+  Pour: et, ou inclusif, ou exclusif, décalage à gauche, décalage à droite, complément à un.\n
+  Ces opérateurs ne portent que sur des types entiers (short, int, long, long long), et sur les \n
+  autres types via les conversions implicites.\n
+  &, | et ^ sont les opérateurs usuels de logiques, mais sur les 0 et 1 de la représentation de l'entier.\n
+  << est le décalage à gauche, les bits de gauches sont perdus et des bits à zéro apparaissent à droite.\n
+  >> est le décalage à droite, les bits de droites sont perdus, et si l'entier est signé, alors les bits\n
+  créés sont égaux au bit de signe. Si l'entier est non signé, alors les bits de gauches créé sont 0.\n
+  \n
+  n << 2: 0001010110111000   1011011101111000\n
+  n >> 3: 0000000010101101   1111011011101111\n
+  p >> 3: 0000000010101101   0001010110111011\n
+  n & 0xF permet de ne prendre en compte que les 4 bits de droite de n, que n soit un char, un short, un int ou un long.\n
+  n & 0x8000 permet d'extraire le bit signe de n, si le type int est codé sur 16 bits.\n
+  Si n & 1 == 1 est vrai, alors n est impair. Si c'est faux, alors n est pair.
+  \n
+  Augmentez cette question avec le maximum d'exemples.\n
+  \n"
+
+

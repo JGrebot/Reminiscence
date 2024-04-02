@@ -1,0 +1,22 @@
+question: "Que fait le mot clef volatile ? Quand et pourquoi est-il utilisé ? Donner un exemple concret."
+answer: "\n
+  volatile int p;\n
+  indique au compilateur que la variable p peut évoluer indépendamment des\n
+  instructions du programme.\n
+  \n
+  Par exemple lorsqu'un autre programme accède à cette même valeur en mémoire.\n
+  \n
+  Cela empêche le compilateur de procéder à des optimisations basées sur les\n
+  seules instructions du programme.\n
+  \n
+  Exemple:\n
+    int k;\n
+    for (int i=0; i<15; i++){ k=j*j; etc};\n
+  \n
+  Si k n'est pas déclaré volatile, et si j n'est pas modifié dans la boucle,\n
+  l'instruction de k est sortie de la boucle par le compilateur.\n
+  \n
+  Si k est déclaré volatile, alors l'instruction est conservée dans la boucle.\n
+  \n"
+
+

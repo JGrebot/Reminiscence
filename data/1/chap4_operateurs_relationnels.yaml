@@ -1,0 +1,35 @@
+question: "Donnez les 6 opérateurs de comparaisons. Quels est leur résultat ?\n
+  Quel est le type des expressions comparées ? Peut-on utiliser des chars ?\n
+  Quelle est la priorité de ces 6 opérateurs ?\n
+  Quelle est la priorité face aux opérateurs arithmétiques ? \n
+  Mettez des parenthèses pour illustrer la priorité sur a + 1 < b == c > d\n
+  Quelle est l'erreur habituelle introuvable ?\n
+  Comment fonctionne la comparaison de deux chars (donnez 4 exemples) ?\n
+  \n
+  \n"
+answer: "\n
+  <, <=, >, >=, ==, !=. Ils renvoient un bool.\n
+  \n
+  Seul des quantités numériques (int, float) sont comparées.\n
+  Oui. Les types short, char ou bool sont convertis en int.\n
+  \n
+  <, <=, >, >= sont de même priorité. == et != sont de priorité inférieure.\n
+  \n
+  Leur priorité est inférieur que celle des opérateurs arithmétiques.
+  \n
+  ((a+1)<b)==(c>d)\n
+  \n
+  if(a=1) est introuvable. (à la place de if(a==1)), car l'expression a=1 renvoie 1 en valeur.\n
+  et 1 est interprété comme true en bool.
+  \n
+  Interprété en int. Donc == et != ne pose pas de problème.\n
+  L'ordre alphabétique est respecté pour les minuscules, les majuscules. L'ordre numérique\n 
+  est respecté. Rien ne garantie les comparaisons entre minuscules et entre chiffre.\n
+  Par exemple,\n
+  'a' < 'c' renvoie true.\n
+  'A' < 'C' renvoie true.\n
+  '1' < '3' renvoie true.\n
+  'a' < '3' est indéfini.\n
+  \n"
+
+

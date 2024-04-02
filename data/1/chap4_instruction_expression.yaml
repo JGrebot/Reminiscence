@@ -1,0 +1,19 @@
+question: "Quelle sont les définitions d'expression et d'instruction (dans la majorité des languages informatiques) ? \n
+  Quelle est la particularité du c++ sur la différence entre instruction et expression (donnez deux exemples) ? \n
+  Quelle est la principale instruction du c++ ?"
+answer: "\n
+  Habituellement (en java par ex), une expression est formée (entre autres) d'opérateurs,\n
+  elle possède une valeur et ne réalise aucune action (pas d'attribution d'une valeur à une variable).\n
+  Une instruction d'affectation réalise l'attribution d'une valeur à une variable, mais ne possède \n
+  pas de valeur.\n
+  \n
+  La particularité du c++: 1) une expression peut agir sur le contenu d'une variable (i++).\n
+  Et toutes instruction possède une valeur: \n
+  i=5 affècte 5 à la variable i. et renvoie la valeur 5 (inutilisée).\n
+  Donc k = i = 5 fonctionne. i=5 renvoie la valeur 5, qui est affectée à k.\n
+  \n
+  La principale instruction en c++ est une expression terminée par un point-virgule. Dont\n
+  la valeur n'est pas utilisée.\n
+  \n"
+
+

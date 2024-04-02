@@ -1,0 +1,8 @@
+question: "When a space or a line break are mandatory ? \n
+Take the declaration of multiples int on a single line as example."
+answer: "\n
+After a particular char, : , = ; * ( ) [ ] { }, no space are needed, otherwise spaces or line break are needed.
+  int x,y     OK\n
+  intx,y      not OK\n
+  int x, y    OK\n"
+

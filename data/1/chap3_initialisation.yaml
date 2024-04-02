@@ -1,0 +1,21 @@
+question: "\n
+Quelles sont les trois syntaxes pour initialiser une variable ? \n
+Quelles sont les deux catégories d'initialisation ?\n
+Que n'autorise pas l'initialisation introduite en C++11 ?\n
+Que fait l'absence de valeur pour l'initialisation introduite en C++11 ?\n
+Quand l'initialisation introduite en C++11 devient perturbante ?\n"
+
+answer: "\n
+  int a = 0; int a(0); int {a};\n
+  \n
+  Les initialisations par copie (avec le =) et les initialisations directes (les deux autres).\n
+  Pour les variables avec des types de bases, cela change peu. \n
+  Pour les classes cela change tout.\n
+  \n
+  L'intialisation avec accolades a été introduite en C++11. \n
+  Elle n'autorise pas les conversions dégradantes. Par exemple int a {1.5}; est rejeté en compilation,\n
+  Les {} représente la valeur dite \"nulle\".\n
+  le type initializer_list a une syntaxe propre qui contient des accolades.\n
+  \n"
+
+

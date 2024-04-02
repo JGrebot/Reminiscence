@@ -1,0 +1,19 @@
+question: "Définit et donne un exemple de: \n
+    Affectation,\n 
+    Déclaration,\n 
+    Macro,\n 
+    Instructions\n, "
+
+answer: "\n
+  L'affectation est le fait de donner à une variable une valeur.\n
+    Exemple : int i=0;\n
+  La déclaration est le fait de donner à une variable un type. (ou un objet quelconque, une fonction, etc)\n
+    Exemple : int i; int f(int);\n
+  Une macro est une directive prise en compte avant la compilation du programme, par le préprocesseur.\n
+    Exemple : #include <iostream>\n
+  \n
+  \n
+  \n
+  \n"
+
+

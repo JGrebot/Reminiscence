@@ -1,0 +1,49 @@
+question: "Donne tous les types de base, \n
+ainsi que leur tailles en byte (pour un système 64 bytes), \n
+ainsi que les modificateurs, l'ensemble des types modifiés et leur taille,\n
+la fonction permettant de connaître la taille d'un objet.\n
+De quoi dépend la taille d'un long int par exemple ?\n
+Et: combien de bits sont dans un byte (=octet) ?\n
+Et les autres types de char."
+
+answer: "\n
+Les types basiques sont:\n
+  char,               1 byte,\n
+  int,                4 bytes,\n
+  float,              4 bytes,\n
+  double,             8 bytes,\n
+  bool,               1 bytes,\n
+  void,               0 bytes,\n
+\n
+Les modificateurs sont:\n
+  signed,\n
+  unsigned,\n
+  short,\n
+  long,\n
+\n
+Les types qui peuvent être modifiés sont:\n
+  int, double, char\n
+\n
+L'ensemble des types modifiés est:\n
+  signed int          4 equivalent à int\n
+  unsigned int        4 seulement pour les entiers positifs.\n
+  short               2 les petits entiers\n
+  unsigned short      2 les petits entiers positifs\n
+  long int            (au moins 4) grands entiers.\n
+  unsigned long int   (au moins 4) grands entiers positifs.\n
+  long long int       8 (très grands entiers)\n
+  unsinged long long  8 (.. positifs)\n
+  long double         12 (grands double)\n
+  signed char         1 (range guaranteed from -127 to 127)\n
+  unsigned char       1 (range from 0 to 255)\n
+\n
+  sizeof(a) permet de connaître la taille de a en bytes.\n
+\n
+  ces types modifiés n'ont pas la même taille sur toutes les machines, cela dépend de l'hardware.\n
+\n
+  Un byte contient 8 bits. Le minimum d'un signed int est donc 2^{4*8-1} = -2^31.\n
+\n
+  Les char plus large sont char16_t, char32_t et wchar_t (w pour quelconque nombre de bytes).\n
+\n"
+
+

@@ -1,0 +1,22 @@
+question: "Quel est la différence entre i++ et ++i ?\n
+Que vaut int i =1; int n = i-- + 3; int n1 = ++i +2; ?\n
+Comment distinguer i++ et ++i, a propos de i et l'opérateur ++ ?\n
+Quelle est la priorité de ces opérateurs ?\n
+Donnez la liste complètes des opérateurs d'affectation élargie.\n
+\n"
+answer: "\n
+++i incremente la valeur de i de 1, et renvoie la valeur de i APRèS l'incrémentation.\n
+i++ incremente la valeur de i de 1, et renvoie la valeur de i AVANT l'incrémentation.\n
+  \n
+n = 4, n1 = 3;\n
+  \n
+i++ : l'opérateur ++ est placé à droite d'une lvalue, sinon à gauche d'une lvalue.\n
+  \n
+Leur priorité est élevée, supérieure à *, /, %, + et -.\n
+  \n
+La liste complète est:\n
+++, --, +=, -=, *=, /=, %=, |=, ^=, &=, <<=, >>=.\n
+Les 5 derniers sont des opérateurs sur bits.\n
+  \n"
+
+

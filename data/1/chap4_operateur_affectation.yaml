@@ -1,0 +1,26 @@
+question: "Que fait l'expression i=5 ?\n
+Quelle est la priorité de l'opérateur d'affectation (=) ?\n
+Qu'est ce qui doit être à gauche de cet opérateur ? à droite ?\n
+Définissez ces deux termes.\n
+Quel est le sens de l'associativité de l'opérateur = ?\n
+Donnez un exemple.\n
+Qu'est ce qui est provoqué par une affectation ?\n
+\n"
+answer: "\n
+  i=5 affecte à la variable i la valeur 5, et possède/renvoie la valeur 5.\n
+  \n
+  = a une priorité inférieur à celles de tous les opérateurs arithmétiques et de comparaison.\n
+  \n
+  A gauche, une lvalue, à droite une rvalue. Il s'agit d'une restriction pour la gauche:\n
+  c+5=x est une erreur.\n
+  \n
+  Une lvalue est une référence à un emplacement mémoire.\n
+  Une rvalue représente une valeur.\n
+  Une lvalue peut être modifiable, ou non. (const int n = 5, n est une lvalue non modifiable).\n
+  \n
+  De droite à gauche, ie i=k=5; a un sens. \n
+  \n
+  Une conversion systématique a lieu, (int en double, etc).\n
+  \n"
+
+

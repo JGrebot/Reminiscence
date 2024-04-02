@@ -1,0 +1,9 @@
+question: "What are the rules to write identificator (in C++ and in C) ? Five required."
+answer: "\n
+  An identificator is a variable or function name.\n
+  1. All letters and number are accepted.\n
+  2. It must not start by a number.\n
+  3. Minuscules and Majuscules are different.\n
+  4. In C, only the 31 first caracters were taken into account. in C++ no limit on the identifcator lenght.\n
+  5. The keywords cannot be used as identificator.\n"
+

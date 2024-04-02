@@ -1,0 +1,41 @@
+question: "Donnez cinq opérateurs arithmétiques binaires et un unaire.\n
+  Apriori, sur quels types sont-ils définis ?\n
+  Quels types induisent des conversions implicites pour les opérateurs arithmétiques ?\n
+  Quel est le résultat de 5/2 et 5.0/2.0 ?\n
+  Quelles sont les règles de priorité des opérateurs arithmétiques ?\n
+  Rajoutez des parenthèses aux expressions suivantes pour illustrer l'ordre de priorité:\n
+  a+b*c // a*b+c%d // -c%d // -a+c%d // -a/-b+c // -a/-(b+c)\n
+  Quels sont les trois cas d'erreurs ? Comment sont-elles gérées ?\n
+
+  "
+answer: "\n
+  Les quatres opérateurs arithmétiques binaires sont: +, -, /, *, et %.\n
+  Le module % ne porte que sur les entiers.\n
+  - est un opérateur unaire (+ également).\n
+  \n
+  Ces opérateurs sont définis pour deux opérandes de même types seulement, parmi.\n
+  int, long int, float, double, long double (unsigned int, unsinged long).\n
+  Les conversions implicites étendent ces opérateurs pour les types:\n
+  short, unsigned short, char, bool. (Et si les deux opérandes ne sont pas \n
+  de même types).\n
+  \n
+  Les opérateurs unaires + et - ont la priorité la plus élevée.\n
+  Vient ensuite, à une priorité équivalente, *, /, %. \n
+  Vient ensuite, + et -, les opérateurs binaires.\n
+  A priorité équivalente, l'associativité est de gauche à droite.\n
+  \n
+  \n
+  a+(b*c) // (a*b)+(c%d) // (-c)%d // (-a)+(c%d) // ((-a)/(-b))+c // (-a)/(-(b+c))\n
+  \n
+  Les trois erreurs sont:\n
+  1. int or float overflow (dépassement de capacité).\n
+  2. sous-dépassement de capacité (pour les floats).\n
+  3. Division par zéro.\n
+  \n
+  Norme du c++: undefined behaviour.\n
+  Conventions IEEE: +INF ou -INF ou NaN pour la division par zéro ou le dépassement d'un float.\n
+  Le dépassement d'un entier n'est pas détecté en général.
+  \n
+  \n"
+
+

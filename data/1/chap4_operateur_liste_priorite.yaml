@@ -1,0 +1,36 @@
+question: "Donnez la liste de tous les opérateurs, par ordre de priorité.\n
+Pour chacun des opérateurs, donnez une description, ainsi que le sens de leur associativité."
+answer: "\n
+  Le premier est le plus prioritaire.\n
+  \n
+  Catégorie,                Opérateurs,                              Associativité\n
+  Résolution de portée      :: (portée globale - unaire)             ->\n
+                            :: (portée de classe - binaire)          \n
+                            :: (portée d'espace de nom - binaire)    \n
+  Référence                 () [] -> .                               ->\n
+  Unaire                    i++, i--, typeid                         <-\n
+                            cast, dynamic_cast, static_cast\n
+                            reinterpret_cast const_cast      \n        
+  Unaire                    +, -, ++i, --i,                          ->\n
+                            !, ~ *, &, sizeof
+                            new, new[], delete, delete[], noexcept
+  Sélection                 ->* .*                                   ->\n
+  Arithmétique              * / %                                    ->\n
+  Arithmétique              + -                                      ->\n
+  Bits                      << >>                                    ->\n
+  Relationnel               < <= > >=                                ->\n
+  Relationnel               == !=                                    ->\n
+  Bits                      &                                        ->\n
+  Bits                      |                                        ->\n
+  Logique                   &&                                       ->\n
+  Logique                   ||                                       ->\n
+  Conditionnel              ?:                                       ->\n
+  Affectation               = += -= *= /* %=                         <-\n
+                            &= ^= |= <<= >>=                         \n
+  Exception                 throw                                    <-\n
+  Séquentiel                ,                                        ->\n
+  \n
+  \n
+  \n"
+
+

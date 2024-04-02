@@ -1,0 +1,40 @@
+question: "Quel est l'opérateur de cast basique ?\n
+Quelle est sa priorité ?\n
+Sur quoi opère-t-il ?\n
+\n
+Quel est l'opérateur conditionnel ?\n
+Comment écrire un if en une seule ligne ?\n
+Quel est le type de la condition ?\n
+Quelle est la priorité de cet opérateur ?\n
+Donnez un cas où les parenthèses sont nécessaires dans la condition.\n
+Donnez un cas où la valeur renvoyée n'est pas utilisée.\n
+\n
+Quel est l'opérateur séquentiel ? Que permet-il ? Quel est son associativité ?\n
+Où est-il utile ? Donnez deux exemples.\n
+\n
+Comment connaître la taille en octet d'une variable, d'un objet ?\n
+\n"
+answer: "\n
+(double) (n/p) est l'opérateur de cast basique.\n
+Les non-basiques sont static_cast<>, const_cast, reinterpret_cast et dynamic_cast.\n
+La priorité du basique est forte. (double) n/p est équivalent à (double)(n)/p.\n
+  \n
+L'opérateur conditionnel est le \"?\"\n
+if(a<b){max=a;}else{max=b;}; peut s'écrire,\n
+max = a<b ? a : b;\n
+La condition est de type int/float/bool, valeur non nulle est considérée comme vrai.\n
+La priorité est faible, juste au dessus de l'affectation (=).\n
+Dans max = (x=y) ? x : 0; les parenthèses sont indispensables.\n
+Sans les parenthèses cela serait max = x = (y ? a:b;) ; Donc x est soit a soit b. et non y.\n
+Dans a<b ? i++ : i--;, l'opérateur conditionnel est utilisé sans affectation.\n
+  \n
+L'opérateur séquentiel est \",\". Il permet d'écrire en une seule ligne plusieurs instructions.\n
+Son associativité est de gauche à droite. Il est principalement utile dans un if ou un for.\n
+if(k=0, i<0) ... remplace k=0; if(i<0) ...\n
+for(k=0, int i=0;...) ... remplace k=0; for(int i=0; ...) ...\n
+  \n
+Avec sizeof(a) on peut connaitre la taille en octet (8 bits) de a.\n
+  \n
+  \n"
+
+

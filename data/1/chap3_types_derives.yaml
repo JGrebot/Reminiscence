@@ -1,0 +1,7 @@
+question: "Donne moi 6 exemples de types dérivés (des types de bases)"
+answer: "\n
+  Il y a les types structurées, comme les chaînes, les vecteurs, les tableaux, et les classes.\n
+  Et il y a d'autres types simples, comme les pointeur ou les énumérations.\n
+  \n"
+
+

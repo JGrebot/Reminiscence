@@ -1,0 +1,34 @@
+question: "Pourquoi les conversions implicites sont nécessaires sur les opérateurs arithmétiques ?\n
+  n, p sont int, x est float. Quelles sont toutes les étapes de n*x + p ?\n
+  Quelle est la hiérarchie naturelle des types ?\n
+  Pour quels types les opérateurs arithmétiques ne sont pas définis ?\n
+  s1, s2, s3 sont short, x est float. Quelles sont toutes les étapes de:\n
+  s1*s2 + s3*x ?\n
+  Que fait c+1 avec c de type char ?\n
+  Que fait: bool b=true; cout << b+2; ?
+  Et les types non singées ?\n
+  \n"
+answer: "\n
+  Les opérateurs arithmétiques binaires sont définis uniquement sur des opérandes de même types.\n
+  Les conversions implicites permettent de mélanger plusieurs types, et d'utiliser les types short,\n
+  char, (leur variantes non signées) et bool.\n
+  \n
+  n est cast en float, ensuite l'opérateur *, ensuite p est converti en float, et l'opérateur +.\n
+  \n
+  La hiérarchie naturelle respecte les données:\n
+  int, long, long long, float, double, long double.\n
+  \n
+  Les opérateurs arithmétiques ne sont pas définis pour les shorts, char, bool. \n
+  Une promotion numériques en int est alors utilisé.\n
+  \n
+  s1 converti en int, s2 en int, multiplication de int. s3 en int. s3 de int en float,\n
+  multiplication de deux float. puis la somme de int à float, et addition de deux float.\n
+  \n
+  c est converti en int. Les bits c sont interprétées comme un int.\n
+  \n
+  b est converti en int. True c'est 1 et false 0.\n
+  \n
+  Il ne faut pas mixer les types non signées.\n
+  \n"
+
+

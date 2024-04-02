@@ -1,0 +1,8 @@
+question: "Une adresse est-elle l'adresse d'un bits ou d'un byte ?\n
+Comment se dit octet en anglais ?\n"
+answer: "\n
+  Octet se dit byte en anglais. L'adresse est celle d'un bit.\n
+  L'adresse d'un int (4 bytes) pointe donc sur le premier bit des 32 qui le compose.\n
+  \n"
+
+

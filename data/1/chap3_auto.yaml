@@ -1,0 +1,26 @@
+question: "Que fait le mot clef auto ?\n
+Dans const int n {12}, auto p = n; Quelle est le type de p ?\n
+Qu'est-ce qui est exclut de auto ?\n
+\n
+Etant donné une variable, comment déclarer une seconde variable du même type que la première ?\n
+Cela préserve-t-il les constantes ?\n
+Cela peut-il être utilisé avec une expression ?\n"
+answer: "\n
+  auto déduit le type d'une variable de l'expression utilisée pour son initialisation.\n
+  \n
+  p est de type int.\n
+  \n
+  const et constexpr sont exclut de auto.\n
+  Sont donc différent:   const auto p = n;  (p de type const int)\n
+                    et   auto p = n;        (p de type int)\n
+                    et   constexpr p = n;   (p de type constexpr int)\n
+  \n
+  const int a {1};
+  decltype (a+2) b;\n
+  \n
+  b est bien de type const int, les const et constexpr sont préservées.\n
+  Les expressions peuvent être utilisées.\n
+  \n
+  \n"
+
+

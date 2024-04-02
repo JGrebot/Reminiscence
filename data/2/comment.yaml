@@ -1,0 +1,11 @@
+question: "How do you write comments in C++ ?"
+answer: "\n
+  Two ways:\n
+  1. End of line comment, with //. It comments until the end of line.\n
+  2. or block comment, or free comment, with /*   and */. It comment every code inside it. \n
+  3. Which part of the following code is executed ?\n
+  /* part1 , part2 // part3 */ part4 \n"
+
+
+
+

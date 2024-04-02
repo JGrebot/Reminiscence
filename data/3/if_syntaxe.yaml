@@ -1,0 +1,2 @@
+question: "Write an if else if else statement."
+answer: "\nif (bool) {\n    std::cout << \"hello\" << std::endl;\n } else if (bool2){\n    std::cout << \"yo\" << std::endl;\n} else {\n    i++;\n}"
