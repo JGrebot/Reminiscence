@@ -1,0 +1,33 @@
+question: "\n
+  Quelles sont les instructions de branchements inconditionnel ?\n
+  Que peut contenir un if depuis c++17 ? Donnez un exemple.\n
+  Quel est le type de la condition dans un if ? Donnez 5 exemples et les règles associées.\n
+  Qu'est ce qu'un bloc ? Est-ce que '{ }' est correct ? Et '{;}' ? Et '{i=3;i=5}' ?\n
+  Quand peut-on utiliser les variables dans un bloc ?\n
+  Faut-il mettre un ; à la fin d'un bloc ?\n
+  \n
+  Ecrivez un if else if en c++.\n
+  \n"
+answer: "\n
+  Il s'agit de goto, break et continue.\n
+  \n
+  Un if peut contenir la declaration d'une variable en c++17: if(int i=0; a<b).\n
+  \n
+  La condition d'un if peut contenir un bool, un int, un float, un char, un pointeur...\n
+  Les règles de conversions implicites en bool s'appliquent. Nombre non null est true, nulle est false.\n
+  Un pointeur Nullptr est false, true sinon. Un char égal au null character ('\0') vaut false, true sinon.\n
+  \n
+  Un bloc est une suite d'instructions délimitées par des { }. Un bloc est lui-même une instruction, avec une valeur.\n
+  {} est correct, il s'agit d'un bloc vide. {;} est correct, il s'agit d'un bloc constitué d'une seule instruction vide.\n
+  Le dernier exemple est incorrect, il manque un point-virgue après le 5.\n
+  Les variables sont soit définies en dehors du bloc et utilisable dans celui-ci, soit locales à un bloc.\n
+  Cad, définies dans le bloc et supprimées à sa fin. Pas de ; nécessaire à la fin d'un bloc.\n
+  \n
+  if(int a=0; i<N){ \n
+    std::cout << \"i=\" << i << std::endl; \n
+  }else if (i>N) { \n
+    std::cout << \"i=\" << i << std::endl; \n
+  }\n
+  \n"
+
+

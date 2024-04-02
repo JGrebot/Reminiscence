@@ -1,0 +1,45 @@
+question: "\n
+  Donnez la syntaxe et un exemple de l'instruction switch. Quel est le type de la condition ?\n
+  Que se passe-t-il lorsque que break n'est pas utilisé ?\n
+  Que peut-on faire de plus avec un switch depuis c++17 ?\n
+  \n
+  Donnez la syntaxe d'un do while ? Que peut-on mettre dans la condition ?\n
+  \n
+  \n"
+answer: "\n
+  switch(Expression){
+    case constante_1: [suite instructions]; break;\n
+    case constante_2: [suite instructions]; break;\n
+    ...
+    [default   :  [suite instructions];] \n
+  \n
+  Dans la condition, une expression entière quelconque, peut être converti (donc un int, un char, etc).\n
+  \n
+  Exemple:\n
+  int = 0;\n
+  switch(n){\n
+    case 0: cout << ' yo 0'; break;\n
+    case 1: cout << ' yo 1'; break;\n
+    default : cout << ' yo 2'; \n
+  }\n
+  Sans break, la suite des cas est exécutée: affiche: yo 0 yo 1 yo 2.\n
+  break est essentiel. Pas besoin de break après default. \n
+  \n
+  Depuis c++17, il est possible d'utiliser d'une expression déclaration dans le switch.\n
+  cad déclarer une variable dans la condition.\n
+  \n
+  do {\n
+    cout << 'yo';\n
+  }\n
+  while (cout << 'yo1, n<10);\n
+  \n
+  do instructions while (expression);\n
+  Notez le ; à la fin de la condition. On peut mettre une expression,\n
+  l'opérateur séquentiel possède la valeur de son dernier élément.\n
+  \n
+  while (expression)\n
+    instruction\n
+  \n
+  \n"
+
+

@@ -1,0 +1,16 @@
+question: "\n
+  Que fait break dans un for ou un while ?\n
+  Que fait continue dans un for ou while ?\n
+  Que fait goto ? Faut-il l'utiliser ? Pourquoi ?\n
+  \n"
+answer: "\n
+  break sort de la boucle la plus interne.\n
+  continue permet de terminé le bloc d'instruction en cours et de passer au suivant.\n
+  Dans un for, cela branche donc directement à l'expression 3 du for. à la condition du while.\n
+  \n
+  goto permet de faire un branchement quelconque dans le code. Ne jamais utiliser.\n
+  pointant dans un bloc, goto n'exexute pas les instructions précédentes. \n
+  Donc des variables peuvent être non définies.\n
+  \n"
+
+

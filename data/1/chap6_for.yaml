@@ -1,0 +1,21 @@
+question: "\n
+  Donnez la syntaxe d'un for habituel. un exemple.\n
+  \n
+  for(int i=0, float x=5.0; ... ; ...) est-il correct ?\n
+  \n
+  Dans\n
+  float x;\n
+  for(int i=0, x=5; ... ; ...), quel est le type de x dans le bloc du for ?\n
+  \n
+  TODO: avec iterator.\n
+  \n"
+answer: "\n
+  \n
+  for(expresssion_declaration; expression; expression){
+    instruction
+  }\n
+  \n
+  \n
+  \n"
+
+
